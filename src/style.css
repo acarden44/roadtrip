@@ -1,6 +1,7 @@
 body {
   font-family: "Poppins", sans-serif;
   background: #272044;
+  color: #fff;
   margin: 0;
   padding: 0;
 }
@@ -52,7 +53,6 @@ header a {
   font-weight: 700;
   font-size: 14px;
   line-height: 1.5;
-  text-align: center;
   color: #272044;
   padding: 16px 32px;
   margin-top: 32px;
@@ -61,12 +61,6 @@ header a {
   text-decoration: none;
   text-transform: uppercase;
   background: white;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-
-header a:hover {
-  background: #ddd;
 }
 
 .gallery {
@@ -83,26 +77,28 @@ header a:hover {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .card {
   position: relative;
   overflow: hidden;
   border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
   width: 100%;
-  height: auto;
-  display: block;
-  transition: transform 0.4s ease;
+  border-radius: 10px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 
-.card .caption {
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.caption {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -117,16 +113,87 @@ header a:hover {
   box-sizing: border-box;
 }
 
-.card:hover {
+.card:hover .caption {
+  transform: translateY(0);
+}
+
+.places {
+  background-color: #f0f0f5;
+  padding: 80px 20px;
+  color: #272044;
+  text-align: center;
+}
+
+.places h2 {
+  font-size: 48px;
+  margin-bottom: 40px;
+}
+
+.places-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.place-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  transition: transform 0.3s ease;
+  overflow: hidden;
+}
+
+.place-card:hover {
   transform: translateY(-5px);
 }
 
-.card:hover img {
-  transform: scale(1.1);
+.place-card h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #272044;
 }
 
-.card:hover .caption {
-  transform: translateY(0%);
+.place-card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.place-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 10px;
+}
+
+.map-embed {
+  width: 100%;
+  height: 180px;
+  border: 0;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+
+.learn-more-button {
+  display: inline-block;
+  margin-top: 20px;
+  background-color: #272044;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+  text-align: center;
+}
+
+.learn-more-button:hover {
+  background-color: #4b3ca4;
 }
 
 .footer {
@@ -176,64 +243,23 @@ header a:hover {
   color: #ffdf6c;
 }
 
-@media (max-width: 900px) {
-  header {
-    padding: 60px 0;
-  }
-
-  header h1 {
-    font-size: 48px;
-  }
-
-  header h2 {
-    font-size: 20px;
-  }
-
-  header h3 {
-    font-size: 12px;
-  }
+.place-media-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
 }
 
-.places {
-  background-color: #f0f0f5;
-  padding: 80px 20px;
-  color: #272044;
-  text-align: center;
+.place-image-side,
+.map-embed-side {
+  flex: 1 1 300px;
+  border-radius: 6px;
+  max-width: 100%;
+  height: 200px;
+  object-fit: cover;
 }
 
-.places h2 {
-  font-size: 48px;
-  margin-bottom: 40px;
-}
-
-.places-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.place-card {
-  background: white;
-  border-radius: 10px;
-  padding: 30px 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-align: left;
-  transition: transform 0.3s ease;
-}
-
-.place-card:hover {
-  transform: translateY(-5px);
-}
-
-.place-card h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #272044;
-}
-
-.place-card p {
-  font-size: 15px;
-  line-height: 1.6;
+.map-embed-side {
+  height: 200px;
+  border: 0;
 }
